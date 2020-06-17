@@ -21,7 +21,7 @@ const startServer = async () => {
   app.use(isAuth)
   
   app.use('/playground', playground({ endpointUrl: '/graphql' }))
-
+console.log("request")
   app.use(
     '/graphql',
     graphqlHttp({

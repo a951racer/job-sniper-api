@@ -13,12 +13,14 @@ export const OpportunitySchema = `
   type Opportunity {
     id: ID!
     employerName: String!
+    jobTitle: String!
     source: String!
+    initialContactDate: Date!
     sourceContact: Contact
     employerURL: String
-    tags: [String],
-    links: [String],
-    files: [String],
+    tags: [String]
+    links: [String]
+    files: [String]
     created: Date
     lastUpdated: Date
     user: User
@@ -26,7 +28,9 @@ export const OpportunitySchema = `
 
   input OpportunityInput {
     employerName: String!
+    jobTitle: String!
     source: String!
+    initialContactDate: Date!
     sourceContact: String
     employerURL: String
     tags: [String],

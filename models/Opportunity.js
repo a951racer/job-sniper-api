@@ -5,19 +5,28 @@ const Schema = mongoose.Schema;
 const OpportunitySchema = new Schema({
   employerName: {
     type: String,
-    default: '',
     trim: true,
-    required: 'Employer name cannot be blank'
+    required: true
+  },
+  jobTitle: {
+    type: String,
+    trim: true,
+    require: true
   },
   source: {
     type: String,
     default: '',
     trim: true,
-    required: 'Source cannot be blank'
+    required: true
   },
   sourceContact: {
     type: Schema.ObjectId,
-    ref: 'Contact'
+    ref: 'Contact',
+    default: null
+  },
+  initialContactDate: {
+    type: Date,
+    default:  Date.now
   },
   employerURL: {
     type: String,
