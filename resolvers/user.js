@@ -8,7 +8,6 @@ export const userResolvers = {
     },
 
     createUser: async ({ user }, req) => {
-      if (!req.isAuth) throw new Error('you must be logged in')
       const existingUser = await User.findOne({ email: user.email });
       if (existingUser) {
         console.error('User exists already.');

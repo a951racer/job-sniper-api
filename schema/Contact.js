@@ -10,32 +10,14 @@ export const ContactSchema = `
     deleteContact(id: ID!): Contact
   }
 
-  type Phone {
-    label: String!
-    phone: String!
-  }
-
-  type Email {
-    label: String!
-    email: String!
-  }
-
-  input PhoneInput {
-    label: String!
-    phone: String!
-  }
-
-  input EmailInput {
-    label: String!
-    email: String!
-  }
-
   type Contact {
     id: ID!
     firstName: String!
     lastName: String!
-    phoneNumbers: [Phone!]
-    emailAddresses: [Email!]
+    organization: String
+    phone: String
+    email: String
+    comments: String
     created: Date
     lastUpdated: Date
     user: User
@@ -44,7 +26,9 @@ export const ContactSchema = `
   input ContactInput {
     firstName: String!
     lastName: String!
-    phoneNumbers: [PhoneInput!]
-    emailAddresses: [EmailInput!]
+    organization: String
+    phone: String
+    email: String
+    comments: String
   }
 `

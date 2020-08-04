@@ -3,7 +3,7 @@ import { Contact } from '../models/Contact'
 export const contactResolvers = {
     contacts: (args, req) => {
       if (!req.isAuth) throw new Error('you must be logged in')
-      return Contact.find().populate('user')
+      return Contact.find().populate('user').sort({lastName: 1})
     },
     createContact: async ({ contact }, req) => {
       if (!req.isAuth) throw new Error('you must be logged in')

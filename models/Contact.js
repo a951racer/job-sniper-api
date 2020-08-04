@@ -4,28 +4,18 @@ const Schema = mongoose.Schema;
 const ContactSchema = new Schema({
   firstName: {
     type: String,
-    default: '',
     trim: true,
-    required: 'First name cannot be blank'
+    required: true
   },
   lastName: {
     type: String,
-    default: '',
     trim: true,
-    required: 'First name cannot be blank'
+    required: true
   },
-  phoneNumbers: [
-    {
-      label: String,
-      phone: String
-    }
-  ],
-  emailAddresses: [
-    {
-      label: String,
-      email: String
-    }
-  ],
+  phone: String,
+  email: String,
+  organization: String,
+  comments: String,
   user: {
     type: Schema.ObjectId,
     ref: 'User'
