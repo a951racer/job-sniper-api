@@ -6,6 +6,11 @@ export const opportunityResolvers = {
       return Opportunity.find().populate('user').populate('sourceContact')
     },
 
+    opportunityById: ({id}, req) => {
+      if (!req.isAuth) throw new Error('you must be logged in')
+      return Opportunity.findById(id).populate('user').populate('sourceContact')
+    },
+
     createOpportunity: async ({ opportunity }, req) => {
       try {
         if (!req.isAuth) throw new Error('you must be logged in')
